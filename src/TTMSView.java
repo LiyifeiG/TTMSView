@@ -6,6 +6,6 @@ import com.ttmsview.usermanagement.VLogin;
 public class TTMSView {
     public static void main(String[] args){
         System.out.println("TTMSVIEW IS CREATING!");
-        VLogin.vloginShow();
+        VLogin.VloginShow();
     }
 }
