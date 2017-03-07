@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f06adc-6f1a-42c7-accd-e7be96dfccd2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTMSView/com/ttmsview/usermanagement/VLoginForm.class" afterPath="$PROJECT_DIR$/out/production/TTMSView/com/ttmsview/usermanagement/VLoginForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTMSView/TTMSView.class" afterPath="$PROJECT_DIR$/out/production/TTMSView/TTMSView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTMSView/com/ttmsview/usermanagement/VLogin.class" afterPath="$PROJECT_DIR$/out/production/TTMSView/com/ttmsview/usermanagement/VLogin.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TTMSView.java" afterPath="$PROJECT_DIR$/src/TTMSView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ttmsview/usermanagement/VLogin.java" afterPath="$PROJECT_DIR$/src/com/ttmsview/usermanagement/VLogin.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,12 +21,12 @@
       <file leaf-file-name="VLogin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ttmsview/usermanagement/VLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            <state relative-caret-position="330">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4069#4431#0" expanded="true" />
-                <element signature="e#4430#4431#0" expanded="true" />
+                <element signature="e#3972#4334#0" expanded="true" />
+                <element signature="e#4333#4334#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,6 +149,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="VLogin.java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TTMSView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TTMSView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Asserts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -419,6 +436,14 @@
       <option name="presentableId" value="Default" />
       <updated>1488537760320</updated>
     </task>
+    <task id="LOCAL-00001" summary="Login界面实现">
+      <created>1488891287848</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1488891287848</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -458,6 +483,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Login界面实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login界面实现" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="2" />
@@ -475,8 +504,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4069#4431#0" expanded="true" />
-            <element signature="e#4430#4431#0" expanded="true" />
+            <element signature="e#3972#4334#0" expanded="true" />
+            <element signature="e#4333#4334#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -503,8 +532,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4069#4431#0" expanded="true" />
-            <element signature="e#4430#4431#0" expanded="true" />
+            <element signature="e#3972#4334#0" expanded="true" />
+            <element signature="e#4333#4334#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -531,8 +560,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4069#4431#0" expanded="true" />
-            <element signature="e#4430#4431#0" expanded="true" />
+            <element signature="e#3972#4334#0" expanded="true" />
+            <element signature="e#4333#4334#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -559,8 +588,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4069#4431#0" expanded="true" />
-            <element signature="e#4430#4431#0" expanded="true" />
+            <element signature="e#3972#4334#0" expanded="true" />
+            <element signature="e#4333#4334#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -607,12 +636,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ttmsview/usermanagement/VLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="330">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4069#4431#0" expanded="true" />
-            <element signature="e#4430#4431#0" expanded="true" />
+            <element signature="e#3972#4334#0" expanded="true" />
+            <element signature="e#4333#4334#0" expanded="true" />
           </folding>
         </state>
       </provider>

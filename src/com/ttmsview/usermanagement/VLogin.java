@@ -16,14 +16,11 @@ public class VLogin {
 }
 
 class VLoginForm extends JFrame{
-    //private JPanel mainPanel = new JPanel();;
     public VLoginForm(){
         //设置窗口大小
-        this.setSize(750 , 540);
+        this.setSize(750 , 500);
         //设置拖动的最低大小
-        this.setMinimumSize(new Dimension(750 , 450));
-        //将面板添加进来
-        //this.add(mainPanel);
+        this.setMinimumSize(new Dimension(750 , 500));
         //设置初始出现位置
         this.setLocationRelativeTo(null);
         //初始化显示
@@ -53,7 +50,7 @@ class VLoginForm extends JFrame{
         //右面板
         JPanel rightPanel = new JPanel();
         rightPanel.setOpaque(false);
-        rightPanel.setLayout(new GridLayout(2 , 1 , 5 , 70));
+        rightPanel.setLayout(new GridLayout(2 , 1 , 5 , 50));
 
         //图标面板
         JPanel tPanel = new JPanel();
