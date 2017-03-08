@@ -4,6 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Created by 杨帆 on 2017/3/3.
@@ -50,8 +55,9 @@ class LoginForm extends JFrame{
         this.add(leftPanel);
 
         //字体
-        Font textFont = new Font("微软雅黑" , Font.PLAIN, _FromDevice.fontSize * 2);
-        Font headFont = new Font("幼圆" , Font.BOLD , _FromDevice.fontSize * 4);
+        Font textFont = new Font("微软雅黑" , Font.PLAIN, _FromDevice.fontSize * 4);
+        Font headFont = new Font("幼圆" , Font.BOLD , _FromDevice.fontSize * 8);
+        Font linkFont = new Font("微软雅黑" , Font.PLAIN , _FromDevice.fontSize * 3);
 
         //右面板
         JPanel rightPanel = new JPanel();
@@ -114,8 +120,37 @@ class LoginForm extends JFrame{
         cancerButton.addActionListener(e -> {
             System.exit(0);
         });
+        JLabel signUpLink = new JLabel("注册");
+        signUpLink.setForeground(Color.black);
+        signUpLink.setFont(linkFont);
+        signUpLink.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                try {
+                    Desktop.getDesktop().browse(new URI("https://www.google.com"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                signUpLink.setForeground(Color.red);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                signUpLink.setForeground(Color.black);
+            }
+        });
         opPanel.add(loginButton);
         opPanel.add(cancerButton);
+        opPanel.add(signUpLink);
 
         //将账号密码面板及操作面板添加到登陆面板上
         loginPanel.add(accountPanel);

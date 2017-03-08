@@ -7,6 +7,6 @@ import java.awt.*;
  */
 public class _FromDevice {
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public static int fontSize = screenSize.height / 100;
+    public static int fontSize = screenSize.height / 200;
     public static int baseSize = screenSize.height / 700;
 }
