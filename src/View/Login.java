@@ -14,21 +14,23 @@ import java.net.URISyntaxException;
  * Created by 杨帆 on 2017/3/3.
  */
 public class Login {
-    public static void VloginShow(){
-        new LoginForm();
+    private static LoginForm lgf;
+    public static void LoginShow(){
+        lgf = new LoginForm();
     }
 
     public static void login() {
-        System.out.println("登陆成功!");
+        lgf.dispose();
+        UserManagement.UserManagementShow();
     }
 }
 
 class LoginForm extends JFrame{
     public LoginForm(){
         //设置窗口大小
-        this.setSize(_FromDevice.screenSize.width / 2 , _FromDevice.screenSize.height / 2);
+        this.setSize(Device.screenSize.width / 2 , Device.screenSize.height / 2);
         //设置拖动的最低大小
-        this.setMinimumSize(new Dimension(_FromDevice.screenSize.width / 2, _FromDevice.screenSize.height / 2));
+        this.setMinimumSize(new Dimension(Device.screenSize.width / 2, Device.screenSize.height / 2));
         //设置初始出现位置
         this.setLocationRelativeTo(null);
         //初始化显示
@@ -41,7 +43,7 @@ class LoginForm extends JFrame{
 
     private void _InitShow(){
         //设置主面板布局
-        this.setLayout(new GridLayout(1 , 2 , _FromDevice.baseSize ,_FromDevice.baseSize));
+        this.setLayout(new GridLayout(1 , 2 , Device.baseSize , Device.baseSize));
 
         //设置面板背景图片
         _SetBk();
@@ -54,15 +56,11 @@ class LoginForm extends JFrame{
         leftPanel.setOpaque(false);
         this.add(leftPanel);
 
-        //字体
-        Font textFont = new Font("微软雅黑" , Font.PLAIN, _FromDevice.fontSize * 4);
-        Font headFont = new Font("幼圆" , Font.BOLD , _FromDevice.fontSize * 8);
-        Font linkFont = new Font("微软雅黑" , Font.PLAIN , _FromDevice.fontSize * 3);
 
         //右面板
         JPanel rightPanel = new JPanel();
         rightPanel.setOpaque(false);
-        rightPanel.setLayout(new GridLayout(2 , 1 , _FromDevice.baseSize , _FromDevice.baseSize * 50));
+        rightPanel.setLayout(new GridLayout(2 , 1 , Device.baseSize , Device.baseSize * 50));
 
         //图标面板
         JPanel tPanel = new JPanel();
@@ -71,42 +69,42 @@ class LoginForm extends JFrame{
         JLabel lLabel = new JLabel("管理员登录");
         lLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lLabel.setVerticalAlignment(SwingConstants.BOTTOM);
-        lLabel.setFont(headFont);
+        lLabel.setFont(Device.headFont);
         tPanel.add(lLabel , BorderLayout.CENTER);
 
         //登陆面板设置
         JPanel loginPanel = new JPanel();
         loginPanel.setOpaque(false);
-        loginPanel.setLayout(new GridLayout(4 , 1 , _FromDevice.baseSize * 2 , _FromDevice.baseSize * 3));
+        loginPanel.setLayout(new GridLayout(4 , 1 , Device.baseSize * 2 , Device.baseSize * 3));
 
         //设置账号面板
         JPanel accountPanel = new JPanel();
         accountPanel.setOpaque(false);
-        accountPanel.setLayout(new FlowLayout(1,_FromDevice.baseSize * 2 , 0));
+        accountPanel.setLayout(new FlowLayout(1, Device.baseSize * 2 , 0));
         JLabel accText = new JLabel("账号:");
-        accText.setFont(textFont);
+        accText.setFont(Device.textFont);
         accountPanel.add(accText);
         JTextField accInput = new JTextField(10);
-        accInput.setFont(textFont);
+        accInput.setFont(Device.textFont);
         accountPanel.add(accInput);
 
         //设置密码面板
         JPanel passwordPanel = new JPanel();
         passwordPanel.setOpaque(false);
-        passwordPanel.setLayout(new FlowLayout(1,_FromDevice.baseSize * 2 , 0));
+        passwordPanel.setLayout(new FlowLayout(1, Device.baseSize * 2 , 0));
         JLabel passText = new JLabel("密码:");
-        passText.setFont(textFont);
+        passText.setFont(Device.textFont);
         passwordPanel.add(passText);
         JPasswordField passInput = new JPasswordField(10);
-        passInput.setFont(textFont);
+        passInput.setFont(Device.textFont);
         passwordPanel.add(passInput);
 
         //操作面板
         JPanel opPanel = new JPanel();
         opPanel.setOpaque(false);
-        opPanel.setLayout(new FlowLayout(1 , _FromDevice.baseSize * 20 , 0));
+        opPanel.setLayout(new FlowLayout(1 , Device.baseSize * 20 , 0));
         JButton loginButton = new JButton("登录");
-        loginButton.setFont(textFont);
+        loginButton.setFont(Device.textFont);
         loginButton.addActionListener(e -> {
             if (accInput.getText().equals("admin") && new String(passInput.getPassword()).equals("123456")){
                 Login.login();
@@ -116,13 +114,13 @@ class LoginForm extends JFrame{
 
         });
         JButton cancerButton = new JButton("取消");
-        cancerButton.setFont(textFont);
+        cancerButton.setFont(Device.textFont);
         cancerButton.addActionListener(e -> {
             System.exit(0);
         });
         JLabel signUpLink = new JLabel("注册");
         signUpLink.setForeground(Color.black);
-        signUpLink.setFont(linkFont);
+        signUpLink.setFont(Device.linkFont);
         signUpLink.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
