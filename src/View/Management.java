@@ -51,7 +51,6 @@ class ManagementMainForm extends JFrame{
         _MenuShow();
         //标签栏
         _TabbedShow();
-        //主界面
     }
 
     /***
@@ -100,14 +99,32 @@ class ManagementMainForm extends JFrame{
      * 显示标签栏
      */
     private void _TabbedShow() {
-        JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.LEFT,JTabbedPane.SCROLL_TAB_LAYOUT);
+        //标签面板设置
+        JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane.setFont(Device.textFont);
         jTabbedPane.setBackground(Color.white);
+        //添加标签页
         jTabbedPane.add(userManagementPanel , "员工管理");
         jTabbedPane.add(auditoriumManagementPanel , "映厅管理");
         jTabbedPane.add(repertoireManagementPanel , "剧目管理");
         jTabbedPane.add(seatManagementPanel , "座位管理");
         jTabbedPane.add(salesInformationPanel , "销售信息");
+        //标签页图标
+        ImageIcon userIcon = new ImageIcon("src\\Asserts\\user.png");
+        userIcon.setImage(userIcon.getImage().getScaledInstance(20 , 20 , 20));
+        ImageIcon auditorIcon = new ImageIcon("src\\Asserts\\auditor.png");
+        auditorIcon.setImage(auditorIcon.getImage().getScaledInstance(20 , 20 , 20));
+        ImageIcon moviesIcon = new ImageIcon("src\\Asserts\\movies.png");
+        moviesIcon.setImage(moviesIcon.getImage().getScaledInstance(20 , 20 , 20));
+        ImageIcon seatsIcon = new ImageIcon("src\\Asserts\\seat.png");
+        seatsIcon.setImage(seatsIcon.getImage().getScaledInstance(20 , 20 , 20));
+        ImageIcon salesIcon = new ImageIcon("src\\Asserts\\sales.png");
+        salesIcon.setImage(salesIcon.getImage().getScaledInstance(20 , 20 , 20));
+        jTabbedPane.setIconAt(0 ,userIcon);
+        jTabbedPane.setIconAt(1 ,auditorIcon);
+        jTabbedPane.setIconAt(2 , moviesIcon);
+        jTabbedPane.setIconAt(3 , seatsIcon);
+        jTabbedPane.setIconAt(4 , salesIcon);
         add(jTabbedPane);
         gbc.gridwidth = 0;
         gbc.weightx = 10;
