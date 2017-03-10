@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Created by 杨帆 on 2017/3/7.
@@ -25,6 +28,7 @@ class ManagementMainForm extends JFrame{
     private RepertoireManagementPanel repertoireManagementPanel = new RepertoireManagementPanel();
     private SeatManagementPanel seatManagementPanel = new SeatManagementPanel();
     private SalesInformationPanel salesInformationPanel = new SalesInformationPanel();
+    private JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
     public ManagementMainForm(){
         //当要显示的超过大小
         gbc.fill = GridBagConstraints.BOTH;
@@ -60,35 +64,69 @@ class ManagementMainForm extends JFrame{
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
+
         //用户信息面板
+        ImageIcon adminIcon = new ImageIcon("src\\Asserts\\admin.png");
+        adminIcon.setImage(adminIcon.getImage().getScaledInstance(15 , 15 , 20));
+        JLabel adminLabelIcon = new JLabel(adminIcon);
         JPanel userInfo = new JPanel(new FlowLayout());
         JLabel userLevel = new JLabel("系统管理员:");
         userLevel.setFont(Device.contentFont);
-        JLabel userName = new JLabel("杨帆");
-        userName.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
 
+        //用户点击菜单
+        JMenuBar adminBar = new JMenuBar();
+        adminBar.setOpaque(false);
+        adminBar.setBorderPainted(false);
+        adminBar.setFont(Device.contentFont);
+        adminBar.setBackground(getBackground());
+        adminBar.setUI(null);
+        adminBar.setMargin(new Insets(10 , 10 , 10 , 10));
+        JMenu adminMenu = new JMenu("杨帆");
+        adminMenu.setFont(Device.contentFont);
+        JMenuItem data = new JMenuItem("资料");
+        data.setFont(Device.contentFont);
+        data.addActionListener( e -> {
+            try {
+                Desktop.getDesktop().browse(new URI("https://www.google.com/ncr"));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
             }
+        });
+        JMenuItem signOut = new JMenuItem("注销");
+        signOut.setFont(Device.contentFont);
+        signOut.addActionListener(e -> {
+            Login.LoginShow();
+            dispose();
+        });
+        adminMenu.add(data);
+        adminMenu.add(signOut);
+        adminMenu.addMouseListener(new MouseAdapter() {
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
-                userName.setForeground(Color.red);
+                adminMenu.setForeground(Color.red);
             }
+
             @Override
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                userName.setForeground(Color.black);
+                adminMenu.setForeground(Color.black);
             }
         });
-        userName.setFont(Device.contentFont);
+
+        adminBar.add(adminMenu);
+
+        userInfo.add(adminLabelIcon);
         userInfo.add(userLevel);
-        userInfo.add(userName);
+        userInfo.add(adminBar);
+        
         topPanel.add(userInfo);
         add(topPanel);
         gbc.gridwidth = 0;
-        gbc.weightx = 0;
+        gbc.weightx = 1;
         gbc.weighty = 0;
         gbl.setConstraints(topPanel , gbc);
     }
@@ -100,7 +138,6 @@ class ManagementMainForm extends JFrame{
      */
     private void _TabbedShow() {
         //标签面板设置
-        JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane.setFont(Device.textFont);
         jTabbedPane.setBackground(Color.white);
         //添加标签页
@@ -127,8 +164,8 @@ class ManagementMainForm extends JFrame{
         jTabbedPane.setIconAt(4 , salesIcon);
         add(jTabbedPane);
         gbc.gridwidth = 0;
-        gbc.weightx = 10;
-        gbc.weighty = 10;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
         gbl.setConstraints(jTabbedPane , gbc);
     }
 

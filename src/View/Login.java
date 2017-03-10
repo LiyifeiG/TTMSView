@@ -126,7 +126,7 @@ class LoginForm extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 try {
-                    Desktop.getDesktop().browse(new URI("https://www.google.com"));
+                    Desktop.getDesktop().browse(new URI("https://www.google.com/ncr"));
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 } catch (URISyntaxException e1) {
