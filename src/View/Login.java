@@ -21,7 +21,7 @@ public class Login {
 
     public static void login() {
         lgf.dispose();
-        UserManagement.UserManagementShow();
+        Management.UserManagementShow();
     }
 }
 

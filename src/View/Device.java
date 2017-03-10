@@ -15,4 +15,5 @@ public class Device {
     public static Font textFont = new Font("微软雅黑" , Font.PLAIN, Device.fontSize * 4);
     public static Font headFont = new Font("幼圆" , Font.BOLD , Device.fontSize * 8);
     public static Font linkFont = new Font("微软雅黑" , Font.PLAIN , Device.fontSize * 3);
+    public static Font contentFont = new Font("微软雅黑" , Font.PLAIN , Device.fontSize * 3);
 }

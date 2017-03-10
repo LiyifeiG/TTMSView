@@ -1,5 +1,4 @@
-import View.Login;
-import View.UserManagement;
+import View.Management;
 
 
 /**
@@ -7,6 +6,7 @@ import View.UserManagement;
  */
 public class TTMSStart {
     public static void main(String[] args){
-        UserManagement.UserManagementShow();
+        Management.UserManagementShow();
+        //Login.LoginShow();
     }
 }
