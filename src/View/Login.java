@@ -2,10 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -176,6 +173,7 @@ class LoginForm extends JFrame{
                 super.componentResized(e);
                 bkImage.setImage(bkImage.getImage().getScaledInstance(getWidth() , getHeight() , Image.SCALE_DEFAULT));
                 bkLabel.setBounds(0 , 0 , getWidth(), getHeight());
+
             }
         });
     }

@@ -4,6 +4,8 @@ import View.Panel.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -21,23 +23,32 @@ public class Management {
 }
 
 class ManagementMainForm extends JFrame{
-    private GridBagLayout gbl = new GridBagLayout();
-    private GridBagConstraints gbc = new GridBagConstraints();
-    private UserManagementPanel userManagementPanel = new UserManagementPanel();
-    private AuditoriumManagementPanel auditoriumManagementPanel = new AuditoriumManagementPanel();
-    private RepertoireManagementPanel repertoireManagementPanel = new RepertoireManagementPanel();
-    private SeatManagementPanel seatManagementPanel = new SeatManagementPanel();
-    private SalesInformationPanel salesInformationPanel = new SalesInformationPanel();
-    private JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
+    private GridBagLayout gbl;
+    private GridBagConstraints gbc;
+    private UserManagementPanel userManagementPanel;
+    private AuditoriumManagementPanel auditoriumManagementPanel;
+    private RepertoireManagementPanel repertoireManagementPanel;
+    private SeatManagementPanel seatManagementPanel;
+    private SalesInformationPanel salesInformationPanel;
+    private JTabbedPane jTabbedPane;
     public ManagementMainForm(){
-        //当要显示的超过大小
-        gbc.fill = GridBagConstraints.BOTH;
         //设置窗口大小
         this.setSize((int) (Device.screenSize.width / 1.5) , (int) (Device.screenSize.height / 1.5));
         //设置拖动的最低大小
         this.setMinimumSize(new Dimension((int) (Device.screenSize.width / 1.5) , (int) (Device.screenSize.height / 1.5)));
         //设置初始出现位置
         this.setLocationRelativeTo(null);
+        //初始化属性
+        gbl = new GridBagLayout();
+        gbc = new GridBagConstraints();
+        userManagementPanel = new UserManagementPanel(this.getSize());
+        auditoriumManagementPanel = new AuditoriumManagementPanel(this.getSize());
+        repertoireManagementPanel = new RepertoireManagementPanel(this.getSize());
+        seatManagementPanel = new SeatManagementPanel(this.getSize());
+        salesInformationPanel = new SalesInformationPanel(this.getSize());
+        jTabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT);
+        //当要显示的超过大小
+        gbc.fill = GridBagConstraints.BOTH;
         //初始化显示
         _InitShow();
         //关闭方法
@@ -55,6 +66,8 @@ class ManagementMainForm extends JFrame{
         _MenuShow();
         //标签栏
         _TabbedShow();
+        //监视大小变化
+        _SetReSize();
     }
 
     /***
@@ -64,12 +77,11 @@ class ManagementMainForm extends JFrame{
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-
         //用户信息面板
+        JPanel userInfo = new JPanel(new FlowLayout());
         ImageIcon adminIcon = new ImageIcon("src\\Asserts\\admin.png");
         adminIcon.setImage(adminIcon.getImage().getScaledInstance(15 , 15 , 20));
         JLabel adminLabelIcon = new JLabel(adminIcon);
-        JPanel userInfo = new JPanel(new FlowLayout());
         JLabel userLevel = new JLabel("系统管理员:");
         userLevel.setFont(Device.contentFont);
 
@@ -177,5 +189,23 @@ class ManagementMainForm extends JFrame{
         Toolkit tl = Toolkit.getDefaultToolkit();
         setIconImage(tl.createImage("src\\Asserts\\ICON.jpg"));
         setTitle("剧院管理系统");
+    }
+
+
+    /**
+     * 当面板大小改变时触发
+     */
+    private void _SetReSize(){
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                userManagementPanel.setSize(getSize());
+                repertoireManagementPanel.setSize(getSize());
+                auditoriumManagementPanel.setSize(getSize());
+                seatManagementPanel.setSize(getSize());
+                salesInformationPanel.setSize(getSize());
+            }
+        });
     }
 }
